@@ -67,9 +67,9 @@ angular.module( 'CommentApp', [
         if ($scope.sorting == 1) {
             return a.$id < b.$id;
         } else if ($scope.sorting == 2) {
-            return a.like > b.like;
+            return a.like < b.like;
         } else {
-            return a.dislike > b.dislike;
+            return a.dislike < b.dislike;
         }
     };
     $scope.comments.sort(compare);
