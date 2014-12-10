@@ -64,12 +64,19 @@ angular.module( 'CommentApp', [
 .controller('HomeCtrl', function($scope, $mdSidenav, $timeout, $mdBottomSheet, $mdDialog, Comments, Message, User) {
     $scope.comments = Comments;
     var compare = function(a, b) {
-        return a.$id < b.$id;
+        if ($scope.sorting == 1) {
+            return a.$id < b.$id;
+        } else if ($scope.sorting == 2) {
+            return a.like > b.like;
+        } else {
+            return a.dislike > b.dislike;
+        }
     };
     $scope.comments.sort(compare);
     $scope.comments.$watch(function() { $scope.comments.sort(compare); });
     $scope.user = User;
     $scope.active = 0;
+    $scope.sorting = 1;
     $scope.openLeftMenu = function() {
         $mdSidenav('left').toggle();
     };
@@ -78,6 +85,12 @@ angular.module( 'CommentApp', [
     }
     $scope.logout = function() {
         User.logout();
+    }
+    $scope.sort = function() {
+        $scope.sorting ++;
+        if ($scope.sorting > 3) 
+            $scope.sorting = 1;
+        $scope.comments.sort(compare);
     }
     $scope.showGridBottomSheet = function($event, item) {
         if (!User.isLogged()) {
