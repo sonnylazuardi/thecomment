@@ -1,0 +1,39 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.menu-icon {
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+.list {
+    max-height: 600px;
+
+}
+
+.list .face {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px; 
+}
+
+.vote {
+    padding: 10
+    px;
+    margin-top: -10px;
+    font-size: 1.1em;
+}
+
+.vote span {
+    padding: 0 10px;
+}
+
+.icon-thumb {
+    font-size: 2.5em;
+    color: #444;
+}

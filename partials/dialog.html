@@ -1,0 +1,21 @@
+<md-dialog aria-label="Comment">
+  <md-content>
+    <md-subheader class="md-sticky-no-effect">Comment</md-subheader>
+    <div style="padding: 20px">
+      {{message}}
+      <div class="column">
+        <md-text-float label="word to comment (must exist in text above)" ng-model="comment.what"></md-text-float>
+        <md-text-float label="comment content" ng-model="comment.notes"></md-text-float>
+      </div>
+    </div>
+  </md-content>
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button ng-click="answer('comment')" class="md-primary"> 
+      Comment
+    </md-button>
+    <md-button ng-click="cancel()">
+      Cancel
+    </md-button>
+  </div>
+</md-dialog>
